@@ -13,6 +13,8 @@ SHOP_ID = 5
 SECRET = "SecretKey01"
 PAYWAY = "payeer_rub"
 
+c = {"Euro": '978', "Dollar": '840', "Ruble": '643'}
+
 logging.config.dictConfig(yaml.load(open('logging.cfg'), Loader=yaml.FullLoader))
 logger = logging.getLogger('file')
 
@@ -31,18 +33,16 @@ def hello():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    select = request.form.get('currency')
     amount = request.form.get('amount')
     if not amount or amount == 0:
         return render_template('index.html', message="Please enter a valid amount")
     currency = request.form.get('currency')
 
     random.seed(datetime.now())
-    shop_order_id = random.randint(0,100000)
+    shop_order_id = random.randint(0, 100000)
     shop_currency = request.args.get('shop_currency') or currency
     description = request.form.get('description') or ''
-    if select == '978':
-        '''Euro'''
+    if currency == c['Euro']:
         keys_sorted = [amount, currency, SHOP_ID, shop_order_id]
         sign = signage(keys_sorted)
         data = {
@@ -60,8 +60,7 @@ def test():
             print(e)
             return render_template('index.html')
 
-    elif select == '840':
-        """Dollar"""
+    elif currency == c['Dollar']:
         keys_sorted = [currency, amount, shop_currency, SHOP_ID, shop_order_id]
         sign = signage(keys_sorted)
         data = {
@@ -80,8 +79,7 @@ def test():
             logger.error(f'Billing unsuccessful: {e}')
             return render_template('index.html', message="Request failed")
 
-    elif select == "643":
-        """Ruble"""
+    elif currency == c['Ruble']:
         keys = [amount, currency, PAYWAY, SHOP_ID, shop_order_id]
         sign = signage(keys)
         data = {
