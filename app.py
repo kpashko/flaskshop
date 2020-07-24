@@ -176,6 +176,3 @@ def invoice():
                 f"Описание '{data.get('description')}', ORDER_ID {data['shop_order_id']}")
     return render_template('invoice.html', source=source)
 
-
-if __name__ == '__main__':
-    app.run()
