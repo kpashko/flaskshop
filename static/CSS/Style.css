@@ -83,7 +83,6 @@ body {
 
 .product-price-btn {
   height: 103px;
-  width: 327px;
   margin-top: 17px;
   position: relative;
 }
@@ -110,8 +109,8 @@ span {
 .product-price-btn button {
   display: inline-block;
   height: 50px;
-  width: 176px;
-  margin: 0 40px 0 38px;
+  width: 206px;
+  margin: 0 40px 0 0;
   box-sizing: border-box;
   border: transparent;
   border-radius: 60px;
@@ -131,7 +130,6 @@ span {
   font-family: 'Raleway', sans-serif;
 
 }
-
 .product-price-btn button:hover {
   background-color: #000;
 }
