@@ -2,7 +2,8 @@ from flask import Flask, render_template, request, redirect, url_for
 import requests
 import hashlib
 import json
-import logging.config, yaml
+import logging.config
+import yaml
 import random
 from datetime import datetime
 
@@ -10,10 +11,9 @@ app = Flask(__name__)
 
 SHOP_ID = 5
 SECRET = "SecretKey01"
-PAYWAY = "payeer_rub"  # (для invoice)
+PAYWAY = "payeer_rub"
 
-
-logging.config.dictConfig(yaml.load(open('logging.cfg'),Loader=yaml.FullLoader))
+logging.config.dictConfig(yaml.load(open('logging.cfg'), Loader=yaml.FullLoader))
 logger = logging.getLogger('file')
 
 
@@ -39,8 +39,6 @@ def test():
 
     random.seed(datetime.now())
     shop_order_id = random.randint(0,100000)
-
-    #shop_order_id = request.form.get('shop_order_id')
     shop_currency = request.args.get('shop_currency') or currency
     description = request.form.get('description') or ''
     if select == '978':
@@ -180,4 +178,4 @@ def invoice():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
