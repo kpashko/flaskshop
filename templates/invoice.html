@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoice</title>
+</head>
+<body>
+<div class="formashlep">
+
+
+<form id="invoice" method="{{source.method}}" action="{{source.url}}" style="display: none;">
+{% for key,value in source.data.items() %}
+<input type="hidden" name="{{ key }}" value="{{ value }}"/>
+{% endfor %}
+<input type="submit"/>
+</form>
+</div>
+
+
+
+<script type="text/javascript">
+	document.getElementById("invoice").submit();
+</script>
+
+</body>
+</html>

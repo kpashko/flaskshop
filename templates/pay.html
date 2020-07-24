@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="pay" name="Paying" method="post" action="{{source.url}}" style="display: none;" accept-charset="UTF-8">
+
+    {% for key,value in source.data.items() %}
+    <input type= "hidden" name="{{ key }}" value="{{ value }}"/>
+    {% endfor %}
+
+    <input type="submit" />
+</form>
+<script type="text/javascript">
+	document.getElementById("pay").submit();
+</script>
+</body>
+</html>

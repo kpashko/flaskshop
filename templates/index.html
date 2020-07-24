@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Harvest vase</title>
+    <link href="https://fonts.googleapis.com/css?family=Bentham|Playfair+Display|Raleway:400,500|Suranna|Trocchi" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/Style.css') }}">
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="product-img">
+        <img src="/static/IMG/product-img.png" height="420" width="327">
+    </div>
+    <div class="product-info">
+        <div class="product-text">
+            <h1>Harvest Vase</h1>
+            <h2>by studio and friends</h2>
+        </div>
+        <form class="form-inline" method="POST" action="{{ url_for('test') }}">
+        <div class="desctext">
+             <textarea name="description" style="width:200px; height:100px;"
+                        placeholder="This is a multiline text input. And a description of a product at the same time!"></textarea>
+        </div>
+        <div class="product-price-block">
+                    <h3>{{message}}</h3>
+                <input name ="amount" type="text"
+                   onkeyup="this.value=this.value.replace(/[^\d]/,'')" placeholder="Total price">
+
+                <select id=cur name="currency">
+                    <option name="Dollar" value="840">USD</option>
+                    <option name="Euro" value="978">EUR</option>
+                    <option name="Ruble" value="643">RUB</option>
+                </select>
+                    <input type="hidden" name="shop_order_id" value="101"/>
+                <div class="product-price-btn">
+                    <button type="submit">buy now</button>
+                </div>
+            </form>
+
+
+        </div>
+
+    </div>
+</div>
+
+</body>
+
+</html>
+<body>
+
+</body>
+</html>
+
