@@ -1,6 +1,6 @@
 ### This is a flask app with several payment methods implemented.
 
-<img src="https://raw.githubusercontent.com/kpashko/flaskshop/master/static/IMG/webpage.png" alt="webpage" width="600"/>
+<img src="static/IMG/webpage.png?raw=true" alt="webpage" width="600"/>
 
 to run the app use:
 
